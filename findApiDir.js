@@ -1,6 +1,8 @@
 import fs from "fs/promises";
 import path from "node:path";
 
+const directoriesToIgnore = ["node_modules", ".git", ".next", ".vercel"];
+
 export default async function findApiDir(basePath = "./") {
   try {
     const files = await fs.readdir(basePath);
@@ -10,6 +12,8 @@ export default async function findApiDir(basePath = "./") {
       const stat = await fs.stat(fullPath);
 
       if (stat.isDirectory()) {
+        if (directoriesToIgnore.includes(file)) continue;
+
         if (path.basename(basePath) === "app" && file === "api") {
           return fullPath;
         }

@@ -14,21 +14,32 @@ export default async function getRequests(routeFiles) {
     "index.ts",
   ];
 
+  const getRelevantPath = (routeFile) => {
+    return routeFile?.split("app")?.[1]?.replace(/\/route\.(ts|js)$/, "");
+  };
+
+  const getUrl = (routeFile) => {
+    const relevantPath = getRelevantPath(routeFile);
+    return `http://localhost:3000${relevantPath}`;
+  };
+
+  const getName = (routeFile) => {
+    const relevantPath = getRelevantPath(routeFile);
+    return relevantPath
+      ?.split("/")
+      ?.filter((element) => !nameElementsToRemove.includes(element))
+      ?.join(" ")
+      ?.trim();
+  };
+
   try {
     for (const routeFile of routeFiles) {
       const filePath = path.join(process.cwd(), routeFile);
       const fileContents = await fs.readFile(filePath, "utf8");
       const lines = fileContents.split("\n");
 
-      const url = routeFile
-        ?.split("app")?.[1]
-        .replace("/api", "http://localhost:3000/api")
-        .replace(/\/route\.(ts|js)$/, "");
-
-      const name = routeFile
-        .split("/")
-        .filter((element) => !nameElementsToRemove.includes(element))
-        .join(" ");
+      const url = getUrl(routeFile);
+      const name = getName(routeFile);
 
       for (const line of lines) {
         const method = methods.find((method) => line.includes(method));
