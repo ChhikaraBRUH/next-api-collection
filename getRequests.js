@@ -15,12 +15,12 @@ export default async function getRequests(routeFiles) {
   ];
 
   const getRelevantPath = (routeFile) => {
-    return routeFile?.split("app")?.[1]?.replace(/\/route\.(ts|js)$/, "");
+    return routeFile?.split("app/")?.[1]?.replace(/\/route\.(ts|js)$/, "");
   };
 
   const getUrl = (routeFile) => {
     const relevantPath = getRelevantPath(routeFile);
-    return `http://localhost:3000${relevantPath}`;
+    return `http://localhost:3000/${relevantPath}`;
   };
 
   const getName = (routeFile) => {
@@ -53,7 +53,7 @@ export default async function getRequests(routeFiles) {
                 protocol: new URL(url)?.protocol.replace(":", ""),
                 host: [new URL(url)?.host.split(":")[0]],
                 port: new URL(url)?.port,
-                path: new URL(url)?.pathname.split("/"),
+                path: new URL(url)?.pathname.split("/")?.slice(1),
               },
             },
             response: [],
