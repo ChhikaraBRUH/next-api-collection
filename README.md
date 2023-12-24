@@ -7,15 +7,15 @@ This is a simple API documentation generator for Next.js applications. It genera
 You can install this package globally with npm, yarn, or pnpm:
 
 ```sh
-npm install -g next-api-json
+npm install -g next-postman
 
 # or
 
-yarn global add next-api-json
+yarn global add next-postman
 
 # or
 
-pnpm install next-api-json -g
+pnpm install next-postman -g
 ```
 
 ## Usage
@@ -23,7 +23,7 @@ pnpm install next-api-json -g
 To generate a Postman collection, run the following command in your Next.js project base directory:
 
 ```sh
-next-api-json
+next-postman
 ```
 
 This will generate a `postmanCollection2.1.json` Postman 2.1 Collection file in your project directory. You can import this file into Postman to have all your API routes as a collection in Postman.

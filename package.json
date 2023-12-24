@@ -1,10 +1,10 @@
 {
-  "name": "next-api-json",
-  "version": "0.0.6",
-  "description": "A simple API documentation generator for Next.js",
+  "name": "next-postman",
+  "version": "0.0.1",
+  "description": "A simple API Postman collection generator for Next.js APIs",
   "main": "bin/index.js",
   "bin": {
-    "next-api-json": "./bin/index.js"
+    "next-postman": "./bin/index.js"
   },
   "type": "module",
   "keywords": [
