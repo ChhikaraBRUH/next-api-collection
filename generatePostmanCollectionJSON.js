@@ -9,8 +9,7 @@ export default async function generatePostmanCollectionJSON(requests) {
 
     console.log("Postman collection generated successfully");
   } catch (error) {
-    console.log("Error generating postman collection");
-    console.error(error);
+    throw error;
   }
 }
 
