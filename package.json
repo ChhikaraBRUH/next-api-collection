@@ -7,7 +7,15 @@
     "next-api-json": "./bin/index.js"
   },
   "type": "module",
-  "keywords": [],
+  "keywords": [
+    "next",
+    "next.js",
+    "api",
+    "documentation",
+    "generator",
+    "json",
+    "postman"
+  ],
   "author": "",
   "license": "MIT",
   "dependencies": {}
