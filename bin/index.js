@@ -1,7 +1,9 @@
-import findApiDir from "./findApiDir.js";
-import findRouteFiles from "./findRouteFiles.js";
-import getRequests from "./getRequests.js";
-import generatePostmanCollectionJSON from "./generatePostmanCollectionJSON.js";
+#!/usr/bin/env node
+
+import findApiDir from "../findApiDir.js";
+import findRouteFiles from "../findRouteFiles.js";
+import getRequests from "../getRequests.js";
+import generatePostmanCollectionJSON from "../generatePostmanCollectionJSON.js";
 
 try {
   const apiDirPath = await findApiDir();
