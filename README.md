@@ -1,4 +1,4 @@
-# Next.js API Documentation Generator
+# Next.js to Postman API Collection Generator
 
 This is a simple API documentation generator for Next.js applications. It generates a Postman collection from your Next.js API routes.
 
